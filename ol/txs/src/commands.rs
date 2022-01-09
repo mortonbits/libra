@@ -16,6 +16,7 @@ pub mod create_account_cmd;
 pub mod transfer_cmd;
 pub mod wallet_cmd;
 pub mod community_pay_cmd;
+pub mod ipaddr_update_cmd;
 
 
 mod relay_cmd;
@@ -37,6 +38,7 @@ use self::{
     version_cmd::VersionCmd,
     autopay_batch_cmd::AutopayBatchCmd,
     autopay_cmd::AutopayCmd,
+    ipaddr_update_cmd::IpAddrUpdateCmd,
     demo_cmd::DemoCmd,
     relay_cmd::RelayCmd,
     valset_cmd::ValSetCmd,
@@ -76,7 +78,11 @@ pub enum TxsCmd {
 
     /// The `autopay-batch` subcommand
     #[options(help = "batch autopay transactions from json file")]
-    AutopayBatch(AutopayBatchCmd),   
+    AutopayBatch(AutopayBatchCmd),
+
+    /// The `ipaddr-update` subcommand
+    #[options(help = "update on chain IP address of validator")]
+    IpAddrUpdate(IpAddrUpdateCmd),
 
     // --- End of STDLIB SCRIPT COMMANDS ---
 
